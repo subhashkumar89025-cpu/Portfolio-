@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subhash | Video Editor | Photography | Digital Creator</title>
+<!-- GOOGLE FONTS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* =====================================================
+   RESET
+===================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+html {
+    scroll-padding-top: 80px;
+}
+body {
+    font-family: "Inter", Arial, sans-serif;
+    background: #070b14;
+    color: #f8fafc;
+    line-height: 1.6;
+}
+h1,
+h2,
+h3,
+.logo,
+button {
+    font-family: "Poppins", Arial, sans-serif;
+}
+a {
+    color: inherit;
+}
+/* =====================================================
+   NAVBAR
+===================================================== */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    padding: 17px 8%;
+    background: rgba(8, 12, 22, 0.94);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid #1f2937;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.logo span {
+    color: #3b82f6;
+}
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    list-style: none;
+}
+nav ul li a {
+    text-decoration: none;
+    color: #cbd5e1;
+    font-size: 14px;
+    transition: 0.3s;
+}
+nav ul li a:hover {
+    color: #60a5fa;
+}
+/* =====================================================
+   GENERAL BUTTON
+===================================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 23px;
+    border-radius: 8px;
+    border: none;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.btn-primary {
+    background: #2563eb;
+    color: white;
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.20);
+}
+.btn-primary:hover {
+    background: #1d4ed8;
+    transform: translateY(-3px);
+}
+.btn-outline {
+    border: 1px solid #3b82f6;
+    color: #60a5fa;
+    background: transparent;
+}
+.btn-outline:hover {
+    background: #2563eb;
+    color: white;
+    transform: translateY(-3px);
+}
+/* =====================================================
+   HERO
+===================================================== */
+.hero {
+    min-height: 92vh;
+    padding: 80px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 70px;
+    background:
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(37, 99, 235, 0.16),
+            transparent 35%
+        );
+}
+.hero-content {
+    max-width: 650px;
+}
+.hero-small {
+    color: #60a5fa;
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+.hero h1 {
+    font-size: 55px;
+    line-height: 1.15;
+    font-weight: 600;
+    margin: 15px 0;
+}
+.hero h1 span {
+    color: #3b82f6;
+}
+.hero h2 {
+    font-size: 21px;
+    font-weight: 400;
+    color: #94a3b8;
+    margin-bottom: 20px;
+}
+.hero p {
+    max-width: 580px;
+    color: #94a3b8;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+/* =====================================================
+   PROFILE PHOTO
+===================================================== */
+.photo-wrapper {
+    position: relative;
+    width: 330px;
+    height: 330px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.photo-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px solid #2563eb;
+    opacity: 0.5;
+    transition: 0.5s ease;
+}
+.profile-photo {
+    width: 285px;
+    height: 285px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #111827;
+    border: 3px solid #334155;
+    position: relative;
+    z-index: 2;
+    transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease,
+        border-color 0.5s ease;
+    box-shadow:
+        0 0 35px rgba(37, 99, 235, 0.15);
+}
+/* PHOTO HOVER ANIMATION */
+.photo-wrapper:hover .profile-photo {
+    transform: scale(1.08) rotate(2deg);
+    border-color: #3b82f6;
+    box-shadow:
+        0 0 30px rgba(59, 130, 246, 0.5),
+        0 0 80px rgba(59, 130, 246, 0.25);
+}
+.photo-wrapper:hover .photo-ring {
+    transform: scale(1.12) rotate(12deg);
+    opacity: 1;
+    box-shadow:
+        0 0 30px rgba(37, 99, 235, 0.25);
+}
+/* =====================================================
+   SECTIONS
+===================================================== */
+section {
+    padding: 90px 8%;
+}
+.section-title {
+    text-align: center;
+    font-size: 34px;
+    font-weight: 600;
+    margin-bottom: 50px;
+}
+.section-title span {
+    color: #3b82f6;
+}
+/* =====================================================
+   ABOUT
+===================================================== */
+.about {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+}
+.about p {
+    color: #94a3b8;
+    font-size: 16px;
+}
+/* =====================================================
+   CARDS
+===================================================== */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+.card {
+    background: #0f172a;
+    padding: 30px;
+    border-radius: 14px;
+    border: 1px solid #1e293b;
+    transition: 0.35s ease;
+}
+.card:hover {
+    transform: translateY(-7px);
+    border-color: #2563eb;
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.35);
+}
+.card h3 {
+    color: #60a5fa;
+    font-size: 19px;
+    font-weight: 500;
+    margin-bottom: 18px;
+}
+.card ul {
+    list-style: none;
+}
+.card li {
+    color: #cbd5e1;
+    font-size: 15px;
+    margin: 9px 0;
+}
+/* =====================================================
+   PROJECTS
+===================================================== */
+.projects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+.project {
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: 0.35s ease;
+}
+.project:hover {
+    transform: translateY(-7px);
+    border-color: #2563eb;
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.35);
+}
+.project-image {
+    height: 210px;
+    background:
+        linear-gradient(
+            135deg,
+            #111827,
+            #172554
+        );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    font-size: 15px;
+}
+.project-content {
+    padding: 22px;
+}
+.project-content h3 {
+    color: #60a5fa;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+.project-content p {
+    color: #94a3b8;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+.project-link {
+    color: #60a5fa;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+.project-link:hover {
+    color: white;
+}
+/* =====================================================
+   SERVICES
+===================================================== */
+.services {
+    background: #090e18;
+}
+/* =====================================================
+   CONTACT
+===================================================== */
+.contact {
+    text-align: center;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(37, 99, 235, 0.12),
+            transparent 50%
+        );
+}
+.contact p {
+    color: #94a3b8;
+    margin: 8px 0;
+}
+.contact-buttons {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+/* =====================================================
+   FOOTER
+===================================================== */
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #030712;
+    color: #64748b;
+    font-size: 14px;
+    border-top: 1px solid #111827;
+}
+/* =====================================================
+   AI CHATBOT BUTTON
+===================================================== */
+.chat-button {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    border: 1px solid #60a5fa;
+    background: #2563eb;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+    z-index: 2000;
+    box-shadow:
+        0 10px 35px rgba(37, 99, 235, 0.45);
+    transition: 0.3s ease;
+}
+.chat-button:hover {
+    transform: scale(1.1);
+    box-shadow:
+        0 10px 45px rgba(37, 99, 235, 0.65);
+}
+/* =====================================================
+   CHAT WINDOW
+===================================================== */
+.chat-box {
+    position: fixed;
+    right: 25px;
+    bottom: 100px;
+    width: 360px;
+    height: 520px;
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 16px;
+    overflow: hidden;
+    display: none;
+    flex-direction: column;
+    z-index: 1999;
+    box-shadow:
+        0 20px 70px rgba(0, 0, 0, 0.6);
+    animation: chatOpen 0.25s ease;
+}
+@keyframes chatOpen {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+/* CHAT HEADER */
+.chat-header {
+    padding: 16px;
+    background: #111827;
+    border-bottom: 1px solid #334155;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.chat-title {
+    font-size: 15px;
+    font-weight: 600;
+}
+.chat-status {
+    display: block;
+    color: #22c55e;
+    font-size: 11px;
+    margin-top: 2px;
+}
+.chat-close {
+    background: none;
+    border: none;
+    color: #cbd5e1;
+    font-size: 22px;
+    cursor: pointer;
+}
+/* CHAT MESSAGES */
+.chat-messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+}
+.message {
+    max-width: 85%;
+    padding: 10px 13px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    font-size: 13px;
+}
+.bot-message {
+    background: #1e293b;
+    color: #cbd5e1;
+}
+.user-message {
+    background: #2563eb;
+    color: white;
+    margin-left: auto;
+}
+/* QUICK QUESTIONS */
+.quick-questions {
+    padding: 8px 12px;
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+}
+.quick-questions button {
+    white-space: nowrap;
+    background: #111827;
+    color: #93c5fd;
+    border: 1px solid #334155;
+    padding: 7px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 11px;
+}
+/* CHAT INPUT */
+.chat-input {
+    display: flex;
+    border-top: 1px solid #334155;
+    background: #0b101c;
+}
+.chat-input input {
+    flex: 1;
+    padding: 14px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-family: "Inter", sans-serif;
+}
+.chat-input button {
+    width: 60px;
+    border: none;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+    font-size: 17px;
+}
+/* =====================================================
+   MOBILE
+===================================================== */
+@media (max-width: 900px) {
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 60px;
+    }
+    .hero h1 {
+        font-size: 42px;
+    }
+    .hero-buttons {
+        justify-content: center;
+    }
+    .photo-wrapper {
+        width: 280px;
+        height: 280px;
+    }
+    .profile-photo {
+        width: 240px;
+        height: 240px;
+    }
+    .cards { grid-template-columns: 1fr; }
+    .projects { grid-template-columns: 1fr; }
+    .chat-box {
+        width: calc(100% - 20px);
+        right: 10px;
+        bottom: 90px;
+        height: 500px;
+    }
+    .chat-button {
+        right: 15px;
+        bottom: 15px;
+    }
+}
+
+/* =====================================================
+   FIVE PROJECT CARDS — SINGLE ROW + HOVER REVEAL
+   ===================================================== */
+.project-row {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 14px;
+    align-items: stretch;
+}
+.project-hover-card {
+    min-width: 0;
+    position: relative;
+}
+.project-hover-card .project-content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding-top: 0;
+    padding-bottom: 0;
+    transform: translateY(12px);
+    transition: max-height .4s ease, opacity .3s ease, transform .4s ease, padding .4s ease;
+}
+.project-hover-card:hover .project-content {
+    max-height: 190px;
+    opacity: 1;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    transform: translateY(0);
+}
+.project-hover-card .project-image {
+    height: 240px;
+    font-size: 38px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    transition: .4s ease;
+}
+.project-hover-card:hover .project-image {
+    height: 170px;
+}
+.qr-btn {
+    margin-top: 8px;
+    border: 1px solid #3b82f6;
+    background: transparent;
+    color: #60a5fa;
+    border-radius: 8px;
+    padding: 8px 13px;
+    cursor: pointer;
+    transition: .3s ease;
+}
+.qr-btn:hover {
+    background: #2563eb;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* QR MODAL */
+.qr-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.75);
+    backdrop-filter: blur(8px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 5000;
+    padding: 20px;
+}
+.qr-modal.active { display: flex; }
+.qr-card {
+    width: min(360px, 100%);
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 18px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 25px 80px rgba(0,0,0,.65);
+}
+.qr-card h3 { color: #60a5fa; margin-bottom: 15px; }
+.qr-code {
+    width: 220px;
+    height: 220px;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 0 auto 18px;
+}
+.qr-close {
+    border: 1px solid #475569;
+    background: transparent;
+    color: #cbd5e1;
+    padding: 9px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+@media (max-width: 1100px) {
+    .project-row { grid-template-columns: repeat(5, minmax(150px, 1fr)); overflow-x: auto; padding-bottom: 10px; }
+}
+@media (max-width: 900px) {
+    .project-row { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; }
+    .project-hover-card { flex: 0 0 78%; scroll-snap-align: start; }
+}
+
+</style>
+</head>
+<body>
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+<nav>
+    <div class="logo">
+        SUBHASH <span>KUMAR.</span>
+    </div>
+    <ul>
+        <li>
+            <a href="#home">Home</a>
+        </li>
+        <li>
+            <a href="#about">About</a>
+        </li>
+        <li>
+            <a href="#skills">Skills</a>
+        </li>
+        <li>
+            <a href="#projects">Projects</a>
+        </li>
+        <li>
+            <a href="#services">Services</a>
+        </li>
+        <li>
+            <a href="#contact">Contact</a>
+        </li>
+    </ul>
+</nav>
+<!-- =====================================================
+     HOME
+===================================================== -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <div class="hero-small">
+            WELCOME TO MY PORTFOLIO
+        </div>
+        <h1>
+            Hello<br>
+            I'm
+            <span>Subhash Kumar</span> 👋
+        </h1>
+        <h2>
+            Video Editor | Photography | Digital Creator
+        </h2>
+        <p>
+            I create engaging videos, photographs, and digital content with a focus on clean visuals and meaningful storytelling.
+        </p>
+        <div class="hero-buttons">
+            <a
+                href="#projects"
+                class="btn btn-primary">
+                View My Work
+            </a>
+            <a
+                href="#contact"
+                class="btn btn-outline">
+                Contact Me
+            </a>
+        </div>
+    </div>
+    <!-- PHOTO -->
+    <div class="photo-wrapper">
+        <div class="photo-ring"></div>
+        <!-- अपनी photo का नाम यहाँ बदलें -->
+        <img
+            src="C:\Users\Subhash Kumar\Desktop\Portfolio\profile.jpeg"
+            alt="Subhash Profile Photo"
+            class="profile-photo">
+    </div>
+</section>
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+<section id="about">
+    <h2 class="section-title">
+        About <span>Me</span>
+    </h2>
+    <div class="about">
+        <p>
+            Hi, I'm Subhash.
+        </p>
+        <br>
+        <p>
+           I’m a creative professional who loves turning ideas into engaging 
+           visual experiences. I work across photography, video editing, and 
+           digital content, with a focus on clean visuals, meaningful 
+           storytelling, and attention to detail. I enjoy exploring creative ideas 
+           and bringing them to life through visuals that feel fresh, polished, 
+           and impactful.
+        </p>
+        <br>
+        <p>
+            My goal is simple: to create work that not only looks great 
+            but also connects with people. Whether it’s a photograph, 
+            a video, or a digital project, I aim to make every piece 
+            visually engaging, purposeful, and memorable..
+        </p>
+    </div>
+</section>
+<!-- =====================================================
+     SKILLS
+===================================================== -->
+<section id="skills">
+    <h2 class="section-title">
+        My <span>Skills</span>
+    </h2>
+    <div class="cards">
+        <div class="card"><h3>🎬 Video Editing</h3><p>Creative video editing, reels, transitions, pacing and storytelling.</p></div>
+        <div class="card"><h3>📷 Photography</h3><p>Photography with attention to composition, lighting and visual detail.</p></div>
+        <div class="card"><h3>✨ Digital Creator</h3><p>Creating fresh digital content for social media and online platforms.</p></div>
+    </div>
+</section>
+<!-- =====================================================
+     PROJECTS
+===================================================== -->
+<section id="projects">
+    <h2 class="section-title">
+        My <span>Projects</span>
+    </h2>
+    <div class="projects project-row">
+        <div class="project project-hover-card">
+            <div class="project-image">01</div>
+            <div class="project-content">
+                <h3>Video Editing</h3>
+                <p>Reels, short videos and cinematic edits.</p>
+                <button class="qr-btn" onclick="showQR('Video Editing','https://example.com/video-editing')">Show QR</button>
+            </div>
+        </div>
+        <div class="project project-hover-card">
+            <div class="project-image">02</div>
+            <div class="project-content">
+                <h3>Photography</h3>
+                <p>Creative portraits, lifestyle and event photography.</p>
+                <button class="qr-btn" onclick="showQR('Photography','https://example.com/photography')">Show QR</button>
+            </div>
+        </div>
+        <div class="project project-hover-card">
+            <div class="project-image">03</div>
+            <div class="project-content">
+                <h3>Digital Content</h3>
+                <p>Fresh and engaging content for digital platforms.</p>
+                <button class="qr-btn" onclick="showQR('Digital Content','https://example.com/digital-content')">Show QR</button>
+            </div>
+        </div>
+        <div class="project project-hover-card">
+            <div class="project-image">04</div>
+            <div class="project-content">
+                <h3>Creative Reels</h3>
+                <p>Short-form videos designed to capture attention.</p>
+                <button class="qr-btn" onclick="showQR('Creative Reels','https://example.com/creative-reels')">Show QR</button>
+            </div>
+        </div>
+        <div class="project project-hover-card">
+            <div class="project-image">05</div>
+            <div class="project-content">
+                <h3>Visual Storytelling</h3>
+                <p>Visual concepts that connect ideas with people.</p>
+                <button class="qr-btn" onclick="showQR('Visual Storytelling','https://example.com/visual-storytelling')">Show QR</button>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- =====================================================
+     SERVICES
+===================================================== -->
+<section class="services" id="services">
+    <h2 class="section-title">
+        What I <span>Can Do</span>
+    </h2>
+    <div class="cards">
+        <div class="card"><h3>🎬 Video Editor</h3><p>Professional edits for reels, social media, short videos and creative projects.</p></div>
+        <div class="card"><h3>📷 Photography</h3><p>Creative photography with clean composition, natural moments and strong visual storytelling.</p></div>
+        <div class="card"><h3>✨ Digital Creator</h3><p>Engaging digital content that feels fresh, polished, purposeful and memorable.</p></div>
+    </div>
+</section>
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+<section class="contact" id="contact">
+    <h2 class="section-title">
+        Let's Work <span>Together</span>
+    </h2>
+    <p>
+        Have a project or want to discuss an idea?
+    </p>
+    <br>
+    <p>
+        <strong>Name:</strong>
+        Subhash
+    </p>
+    <p>
+        <strong>Email:</strong>
+        skumar2026jai@gmail.com
+    </p>
+    <p>
+        <strong>Phone:</strong>
+        +91 9793688245
+    </p>
+    <p>
+        <strong>Location:</strong>
+        Sitapur, Uttar Pradesh, India
+    </p>
+    <div class="contact-buttons">
+        <!-- अपना email डालें -->
+        <a
+            href="mailto:skumar2026jai@gmail.com"
+            class="btn btn-primary">
+            📧 Email Me
+        </a>
+        <!-- अपना WhatsApp number डालें -->
+        <a
+            href="https://wa.me/919793688245"
+            target="_blank"
+            class="btn btn-outline">
+            💬 WhatsApp
+        </a>
+    </div>
+    <div class="contact-buttons">
+        <!-- अपना Instagram URL डालें -->
+        <a
+            href="https://www.instagram.com/im_skjai?igsi=MTllZnRiemt4NXRreQ%3D%3D&utm_source=qr/"
+            target="_blank"
+            class="btn btn-outline">
+            Instagram
+        </a>
+        <!-- अपना LinkedIn URL डालें -->
+        <!--a
+            href="https://linkedin.com/"
+            target="_blank"
+            class="btn btn-outline">
+            LinkedIn
+        </a-->
+    </div>
+</section>
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+<footer>
+    © 2026 Subhash. All Rights Reserved.
+</footer>
+<!-- =====================================================
+     AI CHATBOT
+===================================================== -->
+<!-- CHAT BUTTON -->
+<button
+    class="chat-button"
+    onclick="toggleChat()"
+    aria-label="Open AI Chatbot">
+    🤖
+</button>
+<!-- CHAT WINDOW -->
+<div
+    class="chat-box"
+    id="chatBox">
+    <!-- HEADER -->
+    <div class="chat-header">
+        <div>
+            <div class="chat-title">
+                Subhash AI Assistant
+            </div>
+            <span class="chat-status">
+                ● Online
+            </span>
+        </div>
+        <button
+            class="chat-close"
+            onclick="toggleChat()">
+            ×
+        </button>
+    </div>
+    <!-- MESSAGES -->
+    <div
+        class="chat-messages"
+        id="chatMessages">
+        <div class="message bot-message">
+            👋 Hello! I'm Subhash's AI Assistant.
+            <br><br>
+            Ask me about Subhash's:
+            <br>• Skills
+            <br>• Projects
+            <br>• Services
+            <br>• Digital Marketing
+            <br>• Graphic Design
+            <br>• Contact
+        </div>
+    </div>
+    <!-- QUICK QUESTIONS -->
+    <div class="quick-questions">
+        <button onclick="quickQuestion('What skills do you have?')">
+            Skills
+        </button>
+        <button onclick="quickQuestion('What services do you provide?')">
+            Services
+        </button>
+        <button onclick="quickQuestion('How can I contact you?')">
+            Contact
+        </button>
+    </div>
+    <!-- INPUT -->
+    <div class="chat-input">
+        <input
+            type="text"
+            id="chatInput"
+            placeholder="Ask something..."
+            autocomplete="off">
+        <button onclick="sendMessage()">
+            ➤
+        </button>
+    </div>
+</div>
+<script>
+/* =====================================================
+   CHAT OPEN / CLOSE
+===================================================== */
+function toggleChat() {
+    const chat =
+        document.getElementById("chatBox");
+    if (chat.style.display === "flex") {
+        chat.style.display = "none";
+    } else {
+        chat.style.display = "flex";
+        document.getElementById("chatInput").focus();
+    }
+}
+/* =====================================================
+   QUICK QUESTION
+===================================================== */
+function quickQuestion(question) {
+    document.getElementById("chatInput").value =
+        question;
+    sendMessage();
+}
+/* =====================================================
+   SEND MESSAGE
+===================================================== */
+function sendMessage() {
+    const input =
+        document.getElementById("chatInput");
+    const messages =
+        document.getElementById("chatMessages");
+    const text =
+        input.value.trim();
+    if (!text) {
+        return;
+    }
+    /* USER MESSAGE */
+    const userMessage =
+        document.createElement("div");
+    userMessage.className =
+        "message user-message";
+    userMessage.textContent =
+        text;
+    messages.appendChild(userMessage);
+    input.value = "";
+    /* BOT TYPING */
+    const typing =
+        document.createElement("div");
+    typing.className =
+        "message bot-message";
+    typing.textContent =
+        "Typing...";
+    messages.appendChild(typing);
+    messages.scrollTop =
+        messages.scrollHeight;
+    /* RESPONSE */
+    setTimeout(function() {
+        typing.textContent =
+            getAIResponse(text);
+        messages.scrollTop =
+            messages.scrollHeight;
+    }, 700);
+}
+/* =====================================================
+   ENTER KEY
+===================================================== */
+document
+.getElementById("chatInput")
+.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        sendMessage();
+    }
+});
+/* =====================================================
+   AI-STYLE RESPONSE
+===================================================== */
+function getAIResponse(text) {
+    const message =
+        text.toLowerCase();
+    if (
+        message.includes("hello") ||
+        message.includes("hi") ||
+        message.includes("hey")
+    ) {
+        return "Hello! 👋 Welcome to Subhash's portfolio. How can I help you?";
+    }
+    if (
+        message.includes("skill") ||
+        message.includes("software") ||
+        message.includes("tool")
+    ) {
+        return "Subhash's skills include Graphic Design, Photoshop, CorelDRAW, InDesign, Canva, Digital Marketing, Google Ads, Social Media Marketing and SEO basics.";
+    }
+    if (
+        message.includes("service") ||
+        message.includes("काम") ||
+        message.includes("kaam")
+    ) {
+        return "Subhash provides Graphic Design, Logo Design, Social Media Design, Book Cover Design, Branding and Digital Marketing services.";
+    }
+    if (
+        message.includes("project") ||
+        message.includes("work")
+    ) {
+        return "You can explore the Projects section for Logo Design, Social Media Design, Book Cover Design, Poster Design and Digital Marketing projects.";
+    }
+    if (
+        message.includes("digital") ||
+        message.includes("marketing") ||
+        message.includes("google ads")
+    ) {
+        return "Subhash is learning Digital Marketing, Google Ads, Social Media Marketing, Content Marketing and SEO.";
+    }
+    if (
+        message.includes("graphic") ||
+        message.includes("logo") ||
+        message.includes("poster") ||
+        message.includes("design")
+    ) {
+        return "Subhash works on Logo Design, Poster Design, Social Media Design, Book Cover Design, Banner Design and Branding.";
+    }
+    if (
+        message.includes("contact") ||
+        message.includes("email") ||
+        message.includes("phone") ||
+        message.includes("whatsapp")
+    ) {
+        return "You can contact Subhash through Email or WhatsApp using the Contact section.";
+    }
+    if (
+        message.includes("location") ||
+        message.includes("where")
+    ) {
+        return "Subhash is based in Sitapur, Uttar Pradesh, India.";
+    }
+    return "Thanks for your question! 😊 You can ask me about Skills, Projects, Services, Graphic Design, Digital Marketing or Contact information.";
+}
+
+/* =====================================================
+   PROJECT QR
+   ===================================================== */
+function showQR(title, url) {
+    document.getElementById("qrTitle").textContent = title + " — QR";
+    document.getElementById("qrCode").src =
+        "https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=" +
+        encodeURIComponent(url);
+    document.getElementById("qrModal").classList.add("active");
+}
+function closeQR(event) {
+    if (!event || event.target.id === "qrModal") {
+        document.getElementById("qrModal").classList.remove("active");
+    }
+}
+
+</script>
+</body>
+</html>
